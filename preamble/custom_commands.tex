@@ -1,0 +1,69 @@
+% preamble/custom_commands.tex
+
+% Common mathematical sets
+\newcommand{\R}{\mathbb{R}}          % Real numbers
+\newcommand{\N}{\mathbb{N}}          % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}          % Integers
+\newcommand{\Q}{\mathbb{Q}}          % Rational numbers
+\newcommand{\C}{\mathbb{C}}          % Complex numbers
+
+% Additional mathematical sets (uncomment as needed)
+% \newcommand{\F}{\mathbb{F}}        % Field
+% \newcommand{\H}{\mathbb{H}}        % Quaternions
+% \newcommand{\P}{\mathbb{P}}        % Projective space
+
+% Delimiters and operators
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}    % Inner product
+\DeclarePairedDelimiter{\bracket}{[}{]}               % Brackets
+\DeclarePairedDelimiter{\paren}{(}{)}                 % Parentheses
+
+% Common functions and operators
+\newcommand{\indicator}[1]{\mathbf{1}_{#1}}          % Indicator function
+\newcommand{\closure}[1]{\overline{#1}}              % Closure
+\newcommand{\interior}[1]{\overset{\circ}{#1}}       % Interior
+\newcommand{\boundary}[1]{\partial #1}               % Boundary
+\newcommand{\powerset}[1]{\mathcal{P}(#1)}          % Power set
+\newcommand{\complem}[1]{#1^c}                      % Complement (renamed to avoid conflict)
+
+% Calculus and analysis
+\newcommand{\dd}{\mathrm{d}}                          % Differential d
+\newcommand{\dv}[2]{\frac{\dd #1}{\dd #2}}          % Derivative
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}} % Partial derivative
+% Note: \lim, \limsup, \liminf already defined by LaTeX
+
+% Linear algebra
+\newcommand{\rank}{\text{rank}}                      % Rank
+\newcommand{\trace}{\text{tr}}                       % Trace
+% Note: \det already defined by LaTeX
+\newcommand{\spn}{\text{span}}                       % Span (renamed to avoid conflict)
+\newcommand{\kernel}{\text{ker}}                     % Kernel
+\newcommand{\image}{\text{im}}                       % Image
+
+% Probability and statistics (uncomment as needed)
+% \newcommand{\Prob}{\mathbb{P}}                     % Probability
+% \newcommand{\Expect}{\mathbb{E}}                   % Expectation
+% \newcommand{\Var}{\text{Var}}                      % Variance
+% \newcommand{\Cov}{\text{Cov}}                      % Covariance
+
+% Formatting helpers
+\newcommand{\important}[1]{\textbf{\color{primaryblue}#1}}
+\newcommand{\highlight}[1]{\colorbox{lightblue!50}{#1}}
+\newcommand{\marginnote}[1]{\marginpar{\footnotesize\color{darkgray}#1}}
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO: #1}}}
+\renewcommand{\qed}{\hfill\ensuremath{\blacksquare}}
+
+% Convenient shortcuts for common phrases
+\newcommand{\wolog}{\emph{without loss of generality}}  % Renamed to avoid conflict
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\cf}{\emph{cf.}}
+\newcommand{\etc}{\emph{etc.}}
+
+% Reference shortcuts (use with cleveref)
+% Note: \eqref already defined by LaTeX/amsmath
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}

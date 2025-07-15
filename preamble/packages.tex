@@ -1,0 +1,266 @@
+% preamble/packages.tex
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{
+    a4paper, 
+    margin=1.1in, 
+    headheight=15pt,
+    footskip=30pt,
+    marginparwidth=2cm
+}
+
+\usepackage{amsthm, amssymb, mathtools, stmaryrd}
+
+\usepackage{mathptmx}
+\usepackage{microtype} 
+\usepackage{setspace} 
+\setstretch{1.1} 
+
+% Better section formatting
+\usepackage{titlesec}
+% \titleformat{\chapter}[display]
+%   {\normalfont\huge\bfseries\color{NavyBlue}}
+%   {\chaptertitlename\ \thechapter}{20pt}{\Huge\color{black}}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{NavyBlue}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{DarkSlateGray}}
+  {\thesubsection}{1em}{}
+
+%------------------------------------------------------------------------------
+% 4. COLOR, BOXES, ENUMERATION
+%------------------------------------------------------------------------------
+\usepackage[dvipsnames, svgnames, table]{xcolor}
+\usepackage{enumitem}
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+% Enhanced color palette
+\definecolor{primaryblue}{RGB}{41, 98, 255}
+\definecolor{secondaryblue}{RGB}{66, 133, 244}
+\definecolor{lightblue}{RGB}{232, 240, 254}
+\definecolor{darkgray}{RGB}{55, 71, 79}
+\definecolor{lightgray}{RGB}{245, 246, 247}
+\definecolor{accentgreen}{RGB}{52, 168, 83}
+\definecolor{warningorange}{RGB}{255, 171, 0}
+
+% Problem and solution colors
+\definecolor{problemback}{RGB}{232, 240, 254}
+\definecolor{problembar}{RGB}{41, 98, 255}
+\definecolor{solutionback}{RGB}{249, 250, 251}
+
+% Definition and theorem colors
+\definecolor{definitionback}{RGB}{240, 253, 244}
+\definecolor{definitionbar}{RGB}{52, 168, 83}
+\definecolor{lemmaback}{RGB}{255, 248, 225}
+\definecolor{lemmabar}{RGB}{255, 171, 0}
+\definecolor{insightback}{RGB}{255, 245, 238}
+\definecolor{insightbar}{RGB}{255, 87, 34}
+
+%------------------------------------------------------------------------------
+% 5. TOC & INDEXING
+%------------------------------------------------------------------------------
+\usepackage{tocloft}
+\renewcommand{\thepart}{\arabic{part}}
+\counterwithout{chapter}{part} 
+\renewcommand{\thechapter}{\arabic{chapter}} 
+
+\setlength{\cftpartnumwidth}{2.5em} 
+\renewcommand{\cftpartfont}{\bfseries} 
+\renewcommand{\cftpartpagefont}{\bfseries}
+\cftsetindents{chapter}{1.5em}{2.0em} 
+
+\cftsetindents{section}{2.5em}{3em} 
+\cftsetindents{subsection}{2.5em}{3em}
+
+\setlength{\cftbeforechapskip}{0.5em} 
+\setlength{\cftbeforesecskip}{0.2em} 
+
+\usepackage{makeidx}
+% \makeidx
+
+%------------------------------------------------------------------------------
+% 6. HYPERLINKING & REFERENCING
+%------------------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={Solution Manual},
+    pdfauthor={Amir Faridi},
+    colorlinks=true,
+    linkcolor=NavyBlue,
+    citecolor=ForestGreen,
+    urlcolor=DarkOrchid,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfdisplaydoctitle=true
+}
+% cleveref should be loaded after hyperref
+\usepackage[capitalize, nameinlink]{cleveref}
+
+%------------------------------------------------------------------------------
+% 7. THEOREM STYLES & CUSTOM ENVIRONMENTS
+%------------------------------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+
+%%% ENHANCED PROBLEM ENVIRONMENT
+\newtcbtheorem[auto counter, number within=chapter,
+    crefname={Problem}{Problems},
+    ]%
+    {problem}{Problem}
+    {
+        enhanced,
+        breakable,
+        colback=problemback,
+        colframe=primaryblue,
+        boxrule=1pt,
+        arc=3pt,
+        borderline west={3pt}{0pt}{primaryblue},
+        fonttitle=\bfseries\color{primaryblue},
+        title={Problem \thetcbcounter: #1},
+        attach boxed title to top left={yshift=-2mm, xshift=8mm},
+        boxed title style={
+            boxrule=1pt,
+            colback=white,
+            colframe=primaryblue,
+            arc=2pt
+        },
+        top=8mm,
+        left=4mm,
+        right=4mm,
+        bottom=4mm,
+        drop fuzzy shadow={opacity=0.1},
+    }{prob}
+
+%%% ENHANCED SOLUTION ENVIRONMENT
+\newtcolorbox{solution}{
+    enhanced,
+    breakable,
+    colback=solutionback,
+    colframe=darkgray!30,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{darkgray},
+    title=Solution,
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
+        boxrule=0.5pt,
+        colback=white,
+        colframe=darkgray!30,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=10pt,
+    after skip=10pt
+}
+
+%%% KEY INSIGHT ENVIRONMENT
+\newtcolorbox{keyinsight}{
+    enhanced,
+    breakable,
+    colback=insightback,
+    colframe=insightbar,
+    boxrule=1pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{insightbar!80!black},
+    title={$\star$ Key Insight},
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
+        boxrule=1pt,
+        colback=white,
+        colframe=insightbar,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=8pt,
+    after skip=8pt
+}
+
+%%% KEY OBSERVATION ENVIRONMENT  
+\newtcolorbox{keyobservation}{
+    enhanced,
+    breakable,
+    colback=lightblue!50,
+    colframe=primaryblue,
+    boxrule=1pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{primaryblue},
+    title={$\bullet$ Key Observation},
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
+        boxrule=1pt,
+        colback=white,
+        colframe=primaryblue,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=8pt,
+    after skip=8pt
+}
+
+%%% EXAMPLE ENVIRONMENT
+\newtcolorbox{example}{
+    enhanced,
+    breakable,
+    colback=accentgreen!10,
+    colframe=accentgreen,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{accentgreen!80!black},
+    title=Example,
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
+        boxrule=0.5pt,
+        colback=white,
+        colframe=accentgreen,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=8pt,
+    after skip=8pt
+}
+
+%%% NOTE/REMARK ENVIRONMENT
+\newtcolorbox{note}{
+    enhanced,
+    breakable,
+    colback=warningorange!10,
+    colframe=warningorange,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{warningorange!80!black},
+    title=Note,
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
+        boxrule=0.5pt,
+        colback=white,
+        colframe=warningorange,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=8pt,
+    after skip=8pt
+}

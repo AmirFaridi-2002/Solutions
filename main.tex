@@ -1,0 +1,122 @@
+\documentclass[11pt, oneside, openany]{book}
+
+% Input preamble parts
+\input{preamble/packages.tex}
+\input{preamble/custom_commands.tex}
+
+% Important: Adjust graphicspath to include all image directories
+\graphicspath{
+    {./images/} % General images if you have any
+    {./Domain Theoric Foundations of Functional Programming - Streicher/images/} % Specific book images
+}
+
+% Define a new command for book title pages
+\newcommand{\booktitlepage}[2]{%
+    \clearpage % Start on a new page
+    \thispagestyle{empty} % No headers/footers on this page
+    \vspace*{\fill} % Push content to the vertical middle
+    \centering
+    {\Huge\bfseries\color{primaryblue} #1\par} % Book Title
+    \vspace{1cm}
+    {\Large\color{darkgray} #2\par} % Author (or "Problems by X")
+    \vspace*{\fill} % Push content to the vertical middle
+    \clearpage % Move to the next page for content
+}
+
+
+%------------------------------------------------------------------------------
+% 9. TITLE METADATA & HEADER/FOOTER (from your template)
+%------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textsl{\leftmark}}
+\fancyhead[R]{\textsl{Solution Manual}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Main Solution Manual Title page configuration (NOT for individual books)
+\title{
+    \vspace{-2cm}
+    {\Huge\bfseries\color{primaryblue} Solution Manual} \\[0.5cm]
+    {\Large\color{darkgray} Collected Problem Solutions} \\[0.3cm] % General subtitle
+    {\large\color{darkgray} Various Courses and Books}
+}
+\author{
+    {\large\bfseries Amir Faridi} \\[0.2cm]
+    {\normalsize\color{darkgray} \texttt{amirfaridi2002@gmail.com}} \\[0.1cm]
+    {\small\color{darkgray} } % Institution or Affiliation (Optional)
+}
+\date{
+    {\normalsize\color{darkgray} \today} \\[0.2cm]
+    {\small\color{darkgray} Version 1.0}
+}
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+% Main Solution Manual Cover Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    % Title
+    {\Huge\bfseries\color{primaryblue} Solution Manual\par}
+    \vspace{0.5cm}
+    {\Large\color{darkgray} Collected Problem Solutions\par} % General subtitle
+    \vspace{2cm}
+    
+    % Author info (centered box)
+    \begin{tcolorbox}[
+        enhanced,
+        colback=white,
+        colframe=primaryblue,
+        boxrule=1.5pt,
+        arc=5pt,
+        width=0.7\textwidth,
+        center title,
+        fonttitle=\large\bfseries,
+        title=Author Information
+    ]
+    \centering
+    {\large Amir Faridi}\\[0.3cm]
+    {\normalsize amirfaridi2002@gmail.com}\\[0.2cm]
+    {\small }
+    \end{tcolorbox}
+    
+    \vfill
+    
+    % Date and version
+    \begin{center}
+        {\color{darkgray}\today}\\[0.2cm]
+        {\small\color{darkgray}Version 1.0}
+    \end{center}
+\end{titlepage}
+
+% Preface and Acknowledgments
+% \chapter*{Preface}
+% \addcontentsline{toc}{chapter}{Preface}
+% \markboth{Preface}{Preface}
+
+\pagebreak
+% \section*{Acknowledgments}
+
+\newpage
+\tableofcontents
+\newpage
+
+\part{Domain Theoretic Foundations of Functional Programming}
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter01 - introduction/chapter01_main}
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter02 - PCF and its Operational Semantics/chapter02_main} 
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter03 - The Scott Model of PCF/chapter03_main}
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter04 - Computational Adequacy/chapter04_main} 
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter05 - Milner's Context Lemma/chapter05_main} 
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter06 - The Full Abstraction Problem/chapter06_main} 
+\include{Domain Theoric Foundations of Functional Programming - Streicher/chapter07 - Logical Relations/chapter07_main} 
+
+\part{Type Theory and Formal Proof}
+
+\end{document}
