@@ -111,34 +111,70 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{remark}{Remark}[section]
 
-%%% ENHANCED PROBLEM ENVIRONMENT
-\newtcbtheorem[auto counter, number within=chapter,
-    crefname={Problem}{Problems},
-    ]%
-    {problem}{Problem}
-    {
-        enhanced,
-        breakable,
-        colback=problemback,
-        colframe=primaryblue,
+
+% %%% ENHANCED PROBLEM ENVIRONMENT
+% \newtcbtheorem[auto counter, number within=chapter,
+%     crefname={Problem}{Problems},
+%     ]%
+%     {problem}{Problem}
+%     {
+%         enhanced,
+%         breakable,
+%         colback=problemback,
+%         colframe=primaryblue,
+%         boxrule=1pt,
+%         arc=3pt,
+%         borderline west={3pt}{0pt}{primaryblue},
+%         fonttitle=\bfseries\color{primaryblue},
+%         title={Problem \thetcbcounter: #1},
+%         attach boxed title to top left={yshift=-2mm, xshift=8mm},
+%         boxed title style={
+%             boxrule=1pt,
+%             colback=white,
+%             colframe=primaryblue,
+%             arc=2pt
+%         },
+%         top=8mm,
+%         left=4mm,
+%         right=4mm,
+%         bottom=4mm,
+%         drop fuzzy shadow={opacity=0.1},
+%     }{prob}
+
+
+%%% KEY INSIGHT ENVIRONMENT
+
+
+% Problem counter, numbered within chapter
+\newcounter{problem}[chapter]
+\renewcommand{\theproblem}{\thechapter.\arabic{problem}}
+
+% Elegant problem environment with optional subtitle
+\newtcolorbox[auto counter, number within=chapter]{problem}[2][]{%
+    enhanced,
+    breakable,
+    colback=problemback,
+    colframe=problembar,
+    boxrule=1pt,
+    arc=2pt,
+    fonttitle=\bfseries\color{problembar!80!black},
+    title={Problem~\theproblem\ifstrempty{#2}{}{ \textnormal{(#2)}}},
+    attach boxed title to top left={yshift=-2mm, xshift=8mm},
+    boxed title style={
         boxrule=1pt,
-        arc=3pt,
-        borderline west={3pt}{0pt}{primaryblue},
-        fonttitle=\bfseries\color{primaryblue},
-        title={Problem \thetcbcounter: #1},
-        attach boxed title to top left={yshift=-2mm, xshift=8mm},
-        boxed title style={
-            boxrule=1pt,
-            colback=white,
-            colframe=primaryblue,
-            arc=2pt
-        },
-        top=8mm,
-        left=4mm,
-        right=4mm,
-        bottom=4mm,
-        drop fuzzy shadow={opacity=0.1},
-    }{prob}
+        colback=white,
+        colframe=problembar,
+        arc=1pt
+    },
+    top=8mm,
+    left=4mm,
+    right=4mm,
+    bottom=4mm,
+    before skip=10pt,
+    after skip=10pt,
+    #1
+}
+
 
 %%% ENHANCED SOLUTION ENVIRONMENT
 \newtcolorbox{solution}{
