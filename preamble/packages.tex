@@ -158,7 +158,7 @@
     boxrule=1pt,
     arc=2pt,
     fonttitle=\bfseries\color{problembar!80!black},
-    title={Problem~\theproblem\ifstrempty{#2}{}{ \textnormal{(#2)}}},
+    title={Problem~\thetcbcounter\ifstrempty{#2}{}{ \textnormal{(#2)}}},
     attach boxed title to top left={yshift=-2mm, xshift=8mm},
     boxed title style={
         boxrule=1pt,
@@ -174,7 +174,6 @@
     after skip=10pt,
     #1
 }
-
 
 %%% ENHANCED SOLUTION ENVIRONMENT
 \newtcolorbox{solution}{
