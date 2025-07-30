@@ -1,0 +1,9 @@
+\begin{problem}{1.3}
+    Use the definition of $=_\alpha$ to prove that $\lambda x.x(\lambda z.y) =_\alpha \lambda z.z(\lambda z.y)$, in spite of the fact that $z$ occurs as a binding variable in $x(\lambda z.y)$.
+\end{problem}
+
+\begin{solution}
+    $\lambda z.z(\lambda z.y) =_\alpha \lambda x.(z(\lambda z.y))^{z \to x}$, because $x \notin FV(z.(\lambda z.y))$ and $x$ is not a binding variable in $z(\lambda z.y)$.
+
+    Since $\lambda x.(z(\lambda z.y))^{z \to x} \equiv \lambda x.x(\lambda z.y)$, by symmetry of $=_\alpha$, it follows that $\lambda x.x(\lambda z.y) =_\alpha \lambda z.z(\lambda z.y).$
+\end{solution}

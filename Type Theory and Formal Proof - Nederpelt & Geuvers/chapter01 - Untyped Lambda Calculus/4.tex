@@ -1,0 +1,32 @@
+\begin{problem}{1.4}
+    Consider the following $\lambda$-term: 
+    $$ U := \underbrace{(\lambda z.zxz)}_{A} \underbrace{((\lambda y.xy)x)}_{B} $$
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Give a list of all subterms of $U$
+        \item Draw the tree representation of $U$
+        \item Find the set of all free variables of $U$ by a calculation, as in Examples 1.4.2.
+        \item Find out which of the following $\lambda$-terms are $\alpha$-equivalent to $U$ and give motivation why; also check which of them satisfies the Barendregt convention
+            \begin{enumerate}[label=$\roman*.$]
+                \item $(\lambda y.yxy)((\lambda z.xz)x)$,
+                \item $(\lambda x.xyx)((\lambda z.yz)y)$,
+                \item $(\lambda y.yxy)((\lambda y.xy)x)$,
+                \item $(\lambda v.(vx)v)((\lambda u.uv)x)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $sub(U) = sub(A) \cup sub(B)$ where \\ $sub(A) = \{ \lambda z.zxz, zxz, z, x, z, zx \}$ 
+            and \\ $sub(B) = \{ (\lambda y.xy)x, \lambda y.xy, x, x, y, xy  \}$
+        
+        \item Easy!
+        \item $FV(U) = FV(A) \cup FV(B) = (FV(zxz) \backslash \{z\}) \cup ((FV(xy) \backslash \{y\}) \cup \{x\}) = \{ x \}$
+        \item \begin{enumerate}[label=$\roman*.$]
+            \item Obviously, this is $\alpha$-equivalent to the term $U$ and it satisfies the Barendregt convention.
+            \item The free variables $x$ in $B$ has changed to $y$. Hence, it is not equivalent to $U$. However, it satisfies the Barendregt convention.
+            \item Yes, they are are equivalent since only the bound variable $z$ is change to $y$ in $A$. However, it does not satisfy the Barendregt convention for obvious reasons.
+            \item The free variable $x$ in $B$ has changed to $v$, making them not to be equivalent. It also does not satisfy the Barendregt convention since $v$ occurs as both bound and free variable.  
+        \end{enumerate}
+    \end{enumerate}
+\end{solution}

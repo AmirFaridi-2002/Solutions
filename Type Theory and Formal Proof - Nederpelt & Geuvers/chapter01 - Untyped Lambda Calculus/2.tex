@@ -1,3 +1,13 @@
 \begin{problem}{1.2}
-    
+    Find out for each of the following $\lambda$-terms whether it is $\alpha$-equivalent, or not, to $\lambda x.x(\lambda x.x)$:
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $\lambda y.y(\lambda x.x)$
+        \item $\lambda y.y(\lambda x.y)$
+        \item $\lambda y.y(\lambda y.x)$
+    \end{enumerate}
 \end{problem}
+
+\begin{solution}
+    The original term is $\lambda x.x (\lambda x.x) =_\alpha \lambda a.a (\lambda b.b)$.
+    With this clarification on the original term, it is obvious that it is $\alpha$-equivalent to only the first term.
+\end{solution}
