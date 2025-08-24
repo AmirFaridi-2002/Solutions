@@ -1,0 +1,8 @@
+\begin{problem}{1.17}    
+Prove the following: if \(MN\) is strongly normalising, then both \(M\) and \(N\) are strongly normalising.
+\end{problem}
+
+\begin{solution}
+    If $M$ had an infinite reduction path, let's say $M \to_\beta M_1 \to_\beta ...$, then we would have the following reduction path:
+        $ MN \to_\beta M_1N \to_\beta M_2N \to_\beta ...$, but this is a contradiction since $MN$ is strongly normalising. Same goes for the case if $N$ had an infinite reduction path.
+\end{solution}

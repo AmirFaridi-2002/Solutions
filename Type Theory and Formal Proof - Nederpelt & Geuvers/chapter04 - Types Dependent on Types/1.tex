@@ -1,0 +1,28 @@
+\begin{problem}{4.1}
+    Give a diagram of the tree corresponding to the complete tree derivation of line (16) of Section 4.5.
+\end{problem}
+
+\begin{solution}
+\begin{prooftree}
+  \AxiomC{$ $}
+  \RightLabel{(Var.+sort)}
+  \UnaryInfC{$\beta : *,\ \alpha : * \vdash \alpha : *$}
+
+  \AxiomC{$ $}
+  \RightLabel{(Var.+sort)}
+  \UnaryInfC{$\beta : *,\ \alpha : * \vdash \alpha : *$}
+
+  \RightLabel{(Form.)}
+  \BinaryInfC{$\beta : *,\ \alpha : * \vdash \alpha \to \alpha : *$}
+
+  \RightLabel{(Abs2)}
+  \UnaryInfC{$\beta : * \vdash \lambda \alpha : *. \;\alpha \to \alpha : * \to *$}
+
+  \AxiomC{$ $}
+  \RightLabel{(Var.+sort)}
+  \UnaryInfC{$\beta : * \vdash \beta : *$}
+
+  \RightLabel{(App2.)}
+  \BinaryInfC{$\beta : * \vdash (\lambda \alpha : *. \; \alpha \to \alpha)\ \beta : *$}
+\end{prooftree}
+\end{solution}

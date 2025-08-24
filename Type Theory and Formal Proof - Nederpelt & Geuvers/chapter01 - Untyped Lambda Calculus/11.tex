@@ -1,0 +1,14 @@
+\begin{problem}{1.11}
+    The \emph{successor} is the function mapping natural number \(n\) to \(n+1\). It is represented in \(\lambda\)-calculus by \(\mathit{suc} := \lambda m\,f\,x\,.\, f(m\,f\,x)\). Check the following for the Church numerals defined in the previous exercise:
+    \begin{enumerate}[label=$(\alph*)$]
+        \item \(\mathit{suc}\ \mathit{zero} =_{\beta} \mathit{one}\),
+        \item \(\mathit{suc}\ \mathit{one} =_{\beta} \mathit{two}\).
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $ \texttt{suc zero} = (\lambda mfx.f(mfx))(\lambda fx.x) \to_\beta \lambda fx.f((\lambda fx.x)(fx)) \to_\beta \lambda fx.f(x) = \texttt{one} $
+        \item $ \texttt{suc one} = (\lambda mfx.f(mfx))(\lambda fx.fx) \to_\beta \lambda fx.f((\lambda fx.fx)fx) \to_\beta \lambda fx.f(fx) = \texttt{two} $
+    \end{enumerate}
+\end{solution}

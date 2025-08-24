@@ -1,0 +1,22 @@
+\begin{problem}{4.3}
+    \begin{enumerate}[label=$(\alph*)$]
+    \item Give a complete (i.e. not shortened) $\lambda\omega$-derivation in flag format of $\alpha, \beta : *, x : \alpha, y : \alpha \rightarrow \beta \vdash yx : \beta$.
+    \item Give a shortened $\lambda\omega$-derivation in flag format of $\alpha, \beta : *, x : \alpha, y : \alpha \rightarrow \beta, z : \beta \rightarrow \alpha \vdash z(yx) : \alpha$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{prooftree}
+        \AxiomC{Similar To The Branch On The Right}
+        \UnaryInfC{$ \Gamma \vdash x:\alpha $}
+        \AxiomC{$ $}
+        \RightLabel{(FWV.)}
+        \UnaryInfC{$ \Gamma_1 \vdash \alpha \to \beta : \star $}
+        \RightLabel{(Var.)}
+        \UnaryInfC{$ \Gamma \vdash y:\alpha\to\beta $}
+        \RightLabel{(App.)}
+        \BinaryInfC{$ \alpha\beta:\star, x:\alpha, y:\alpha\to\beta \vdash yx:\beta $}
+    \end{prooftree}
+    (FWV.) Can be solved easily by the use of the (form.), (var.), and the (weak.) rules.
+    Part (b) of the problem is also very similar and straightforward.
+\end{solution}

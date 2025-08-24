@@ -1,0 +1,11 @@
+\begin{problem}{5.10}
+    Consider the following context:
+    $$\Gamma \equiv S : *, \, P : S \rightarrow *, \, f : S \rightarrow S, \, g : S \rightarrow S,$$
+    $$u : \Pi x : S . (P(fx) \rightarrow P(gx)), \, v : \Pi x, y : S . ((Px \rightarrow Py) \rightarrow P(fx))$$
+    (cf. Notation 3.4.2). Let $M \equiv \lambda x : S . v(fx)(gx)(ux)$.
+    
+    \begin{enumerate}[label=$(\alph*)$]
+    \item Make a guess at which type $N$ may satisfy $\Gamma \vdash M : N$.
+    \item Demonstrate that the proof object $M$ does indeed code a proof of the proposition $N$ you have guessed, by elaborating the $\lambda P$-derivation.
+    \end{enumerate}
+\end{problem}

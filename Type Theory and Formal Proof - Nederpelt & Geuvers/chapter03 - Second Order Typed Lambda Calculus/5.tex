@@ -1,0 +1,20 @@
+\begin{problem}{3.5}
+    Let $\perp \equiv \Pi\alpha : * . \alpha$ and $\Gamma \equiv \beta : * , x : \perp$.
+    \begin{enumerate}[label=$(\alph*)$]
+    \item Prove that $\perp$ is legal.
+    \item Find an inhabitant of $\beta$ in context $\Gamma$.
+    \item Give three not $\beta$-convertible inhabitants of $\beta \rightarrow \beta$ in context $\Gamma$, each in $\beta$-normal form.
+    \item Prove that the following terms inhabit the same type in context $\Gamma$:
+        $$\lambda f : \beta \rightarrow \beta \rightarrow \beta \cdot f(x \beta)(x \beta), \quad x((\beta \rightarrow \beta \rightarrow \beta) \rightarrow \beta).$$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $\alpha:\star \vdash \alpha:\star \implies \vdash \bot : \star$
+        \item Obviously we have: $x\beta:\beta$.
+        \item $ \Gamma \vdash id \equiv \lambda y:\beta . y : \beta \to \beta \qquad \Gamma \vdash cons \equiv \lambda y:\beta .x\beta : \beta \to \beta $ and \\
+                $ \Gamma \vdash M \equiv \lambda y:\beta.x(\beta \to \beta)y : \beta \to \beta $ are three non-$\beta$-convertible inhabitants of $\beta\to\beta$ in $\Gamma$ and all of them are in $\beta$-nf.
+        \item $\lambda f:\beta\to\beta\to\beta.f(x\beta)(x\beta) : (\beta\to\beta\to\beta)\to\beta $ since $(x\beta:\beta)$. Also, \\ $x((\beta\to\beta\to\beta)\to\beta) : (\beta\to\beta\to\beta)\to\beta$.
+    \end{enumerate}
+\end{solution}

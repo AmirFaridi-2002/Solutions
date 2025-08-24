@@ -1,0 +1,17 @@
+\begin{problem}{1.12}
+    We define the \(\lambda\)-terms \(\mathit{true}\) and \(\mathit{false}\) (the \emph{booleans}) and \(\mathit{not}\) (resembling the logical \(\neg\)-operator) by:
+    $$ \mathit{true} := \lambda xy\,.\, x \quad \text{(so it happens that } \mathit{true} \equiv \mathsf{K}), $$
+    $$ \mathit{false} := \lambda xy\,.\, y \quad \text{(and } \mathit{false} \equiv \mathit{zero}). $$
+    $$ \mathit{not} := \lambda z.z \;\; false \;\; true $$
+    Show that $not \;\; not \;\; p =_\beta p$ for all terms $p$, in each of the two cases:
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $p \twoheadrightarrow_\beta true$
+        \item $p \twoheadrightarrow_\beta false$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    It is sufficient to show that $not \;\; true \twoheadrightarrow_\beta false$ and $not \;\; false \twoheadrightarrow_\beta true$.
+    $$ not \;\; true = (\lambda z.z (\lambda ab.b) (\lambda ab.a)) (\lambda ab.a) \to_\beta (\lambda ab.a)(\lambda ab.b)(\lambda ab.a) \to_\beta \lambda ab.b = false $$
+    similarly, $not \;\; false \twoheadrightarrow_\beta true$.
+\end{solution}

@@ -1,4 +1,4 @@
-\begin{problem}
+\begin{problem}{1.5}
     Give the results of the following substitutions:
     \begin{enumerate}[label=$(\alph*)$]
         \item $(\lambda x \cdot y (\lambda y \cdot x \, y)) [y := \lambda z \cdot z \, x]$, 
@@ -9,5 +9,10 @@
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[label=$(\alph*)$]
+        \item First of all, $\lambda x.y(\lambda y.xy) =_\alpha \lambda a.y(\lambda b.ab)$. Hence, the result of the substitution would be $(\lambda a.(\lambda z.zx)(\lambda b.ab))$.
+        \item $ ((xyz)[x := y])[y:=z] = (yyz)[y:=z] = (zzz) $
+        \item $ (\lambda x.xyz) =_\alpha (\lambda a.ayz) $, and the substitution would be: $$ ((\lambda a.ayz)[x:=y])[y:=z] = (\lambda a.ayz)[y:=z] = (\lambda a.azz) $$
+        \item $ (\lambda y.yyx) =_\alpha (\lambda a.aax) \Rightarrow (\lambda a.aax)[x:=yz] = (\lambda a.aayz) $
+    \end{enumerate}
 \end{solution}

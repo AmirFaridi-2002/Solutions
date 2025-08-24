@@ -1,0 +1,18 @@
+\begin{problem}{2.13}
+    Find a term of type $\tau$ in context $\Gamma$, with:
+    \begin{enumerate}[label=$(\alph*)$]
+    \item $\tau \equiv (\alpha \rightarrow \beta) \rightarrow \alpha \rightarrow \gamma$, $\Gamma \equiv x : \alpha \rightarrow \beta \rightarrow \gamma$,
+    \item $\tau \equiv \alpha \rightarrow (\alpha \rightarrow \beta) \rightarrow \gamma$, $\Gamma \equiv x : \alpha \rightarrow \beta \rightarrow \alpha \rightarrow \gamma$,
+    \item $\tau \equiv (\alpha \rightarrow \gamma) \rightarrow (\beta \rightarrow \alpha) \rightarrow \gamma$, $\Gamma \equiv x : (\beta \rightarrow \gamma) \rightarrow \gamma$.
+    \end{enumerate}
+    Give appropriate derivations.
+\end{problem}
+
+\begin{solution}
+    In each case, giving derivation is fairy easy. So I'll settle for giving the term.
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $ \Gamma \vdash \lambda f:(\alpha \to \beta) \cdot \lambda a:\alpha \cdot xa(fa) : \tau $
+        \item $ \Gamma \vdash \lambda a:\alpha . \lambda f:(\alpha \to \beta).(xa)(fa)(a) : \tau $
+        \item $ \Gamma \vdash \lambda f:(\alpha \to \gamma). \lambda g:(\beta \to \alpha) .x(\lambda b:\beta .f(gb)) : \tau $
+    \end{enumerate}
+\end{solution}

@@ -1,0 +1,9 @@
+\begin{problem}{1.18}
+    Let \(L\), \(M\) and \(N\) be \(\lambda\)-terms such that \(L =_{\beta} M\) and \(L \twoheadrightarrow_{\beta} N\). Moreover, let \(N\) be in \(\beta\)-normal form. Prove that also \(M \twoheadrightarrow_{\beta} N\).
+\end{problem}
+
+\begin{solution}
+    Since $M =_\beta L$, then by corollary 1.9.9, there is an $X$ such that $M \twoheadrightarrow_\beta X$ and $L \twoheadrightarrow_\beta X$. By Church-Rosser Theorem, since $L \twoheadrightarrow X$ and $L \twoheadleftarrow N$, 
+        there is some $Y$ such that $N \twoheadrightarrow_\beta Y$ and $X \twoheadrightarrow_\beta Y$, but $N$ is in $\beta-nf$ and hence, $N \equiv Y$.
+        Now, we have $M \twoheadrightarrow_\beta X \twoheadrightarrow_\beta N$ and by the transitivity of $\twoheadrightarrow_\beta$, we have $M \twoheadrightarrow_\beta N$.
+\end{solution}

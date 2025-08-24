@@ -1,0 +1,25 @@
+\begin{problem}{4.7}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Give $\lambda\underline{\omega}$-definitions of the notions legal term, statement, $\lambda\underline{\omega}$-context and domain.
+        \item Formulate the following theorems for $\lambda\underline{\omega}$: Free Variables Lemma and Thinning Lemma.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item \begin{itemize}
+            \item \textbf{Legal Term:} A $\lambda\underline{\omega}$-term is considered legal if there exists a context $\Gamma$ and a type $\rho$ such that the judgement $\Gamma \vdash M:\rho$ is derivable.
+            \item \textbf{Statement:} A statement is an expression of one of the following two forms: 1. $M:A$, or 2. $A:s$, where $M$ and $A$ are expressions, and $s\in\{\star, \square \}$.
+            \item \textbf{$\lambda\underline{\omega}$-context:} Is a list of declaration defined inductively as follows:
+                    \begin{itemize}
+                        \item $\empty$ is a valid $\lambda\underline{\omega}$-context.
+                        \item If $\Gamma$ is a valid $\lambda\underline{\omega}$-context, $\alpha$ is a type variable not in the domain of $\Gamma$, then $\Gamma, \alpha:\star$ is a valid $\lambda\underline{\omega}$-context.
+                        \item If $\Gamma$ is a valid $\lambda\underline{\omega}$-context, $\rho$ is a type such that all its free type variables are in the domain of $\Gamma$, and $x$ is a term variable not in the domain of $\Gamma$, then $\Gamma, x:\rho$ is a valid $\lambda\underline{\omega}$-context.
+                    \end{itemize}
+            \item \textbf{Domain:} The domain of a contex $\Gamma$ is the list of all variables subjects declared in $\Gamma$.
+        \end{itemize}
+
+        \item \textbf{Free Variables Lemma:} If $\Gamma \vdash M:\sigma$, then $FV(M) \subseteq \Gamma$. \\
+              \textbf{Thinning Lemma:} If $\Gamma \vdash M:\sigma$ and $\Gamma \subseteq \Sigma$, then $\Sigma \vdash M:\sigma$.
+    \end{enumerate}
+\end{solution}

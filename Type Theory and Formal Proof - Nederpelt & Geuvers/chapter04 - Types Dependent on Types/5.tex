@@ -1,0 +1,35 @@
+\begin{problem}{4.5}
+    Give a shortened $\lambda\omega$-derivation in flag format of the following judgement: 
+    $$\alpha : *, x : \alpha \vdash \lambda y : \alpha . x : (\lambda \beta : * . \beta \rightarrow \beta)\alpha.$$
+\end{problem}
+
+
+\begin{solution}
+    $$\begin{array}{ll}
+        (a) & \fbox{$\alpha : *$} \\[6pt]
+
+        (b) & \quad \vrule\quad \fbox{$x : \alpha$} \\[6pt]
+
+        (c) & \quad \vrule\qquad\vrule\; \fbox{$y : \alpha$} \\[6pt]
+
+        (1) & \quad \vrule\qquad\vrule\;\;\vrule\; x : \alpha 
+            \hfill \text{(weak) on (b)} \\[6pt]
+
+        (2) & \quad \vrule\qquad\vrule\; \lambda y : \alpha . x : \alpha \to \alpha 
+            \hfill \text{(abst) on (1)} \\[6pt]
+
+        (d) & \quad \vrule\quad \fbox{$\beta : *$} \\[6pt]
+
+        (3) & \quad \vrule\qquad\vrule\; \beta \to \beta : * 
+            \hfill \text{(form) on (d) and (d)} \\[6pt]
+
+        (4) & \quad \vrule\qquad\vrule\; \lambda \beta : * . \beta \to \beta : * \to * 
+            \hfill \text{(abst) on (3)} \\[6pt]
+
+        (5) & \quad \vrule\qquad\vrule\; (\lambda \beta : * . \beta \to \beta)\, \alpha : * 
+            \hfill \text{(appl) on (4) and (a)} \\[6pt]
+
+        (6) & \quad \vrule\quad \lambda y : \alpha . x : (\lambda \beta : * . \beta \to \beta)\,\alpha 
+            \hfill \text{(conv) on (2) and (5)}
+    \end{array}$$
+\end{solution}

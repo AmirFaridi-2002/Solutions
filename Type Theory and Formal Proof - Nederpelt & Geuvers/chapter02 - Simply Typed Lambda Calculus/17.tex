@@ -1,0 +1,12 @@
+\begin{problem}{2.17}
+     Prove Lemma 2.10.9 (the 'Uniqueness of Types Lemma').
+    
+    (Hint: use Lemma 2.10.7 (the `Generation Lemma')).
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item \textbf{Var:} Assume $x:\sigma \in \Gamma$ and $x:\tau \in \Gamma$ (By the Generation lemma). By the definition of context (a list of declarations with different subjects), we must have $x:\sigma \equiv x:\tau$, and hence, $\sigma \equiv \tau$.
+        \item \textbf{App. and Abs:} It is straightforward to assume two types for the derivations by Generation lemma, and then use IH to conclude the equivalences of the types! 
+    \end{itemize}
+\end{solution}

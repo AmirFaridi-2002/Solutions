@@ -1,0 +1,11 @@
+\begin{problem}{2.14}
+    Find an inhabitant of the type $\alpha \rightarrow \beta \rightarrow \gamma$ in the following context: 
+    $$\Gamma \equiv x : (\gamma \rightarrow \beta) \rightarrow \alpha \rightarrow \gamma.$$
+    Give an appropriate derivation.
+    
+    (Hint: if $\tau$ is inhabited, then also $\sigma \rightarrow \tau$ is inhabited.)
+\end{problem}
+
+\begin{solution}
+    I only provide the term. Derivation is straight forward. $ \lambda a:\alpha . \lambda b:\beta .x(\lambda c:\gamma . b)a : \alpha \to \beta \to \gamma $
+\end{solution}

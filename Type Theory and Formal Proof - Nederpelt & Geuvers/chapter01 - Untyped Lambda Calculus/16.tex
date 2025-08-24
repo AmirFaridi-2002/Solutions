@@ -1,0 +1,20 @@
+\begin{problem}{1.16}
+    Let $M$ be a $\lambda-term$ with the following properties:
+    \begin{itemize}
+        \item $M$ has a $\beta$-normal form.
+        \item There exists a reduction path $M \equiv M_0 \to_\beta M_1 \to_\beta ...$ of infinite length.
+    \end{itemize}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Prove that every $M_i$ has a $\beta$-normal form.
+        \item Give an example of a $\lambda$-term with the mentioned two properties and show that it satisfies these properties.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Since $M$ has a $\beta$-normal form, there is an $L$ in $\beta$-nf such that $M =_\beta L$. By $CR$, there is an $N$
+                such that $M \twoheadrightarrow_\beta N$ and $L \twoheadrightarrow_\beta N$. The latter and Lemma 1.9.2 imply that $L \equiv N$, hence $M \twoheadrightarrow_\beta L$.
+                From $M \twoheadrightarrow_\beta M_i$ and $M \twoheadrightarrow_\beta L$ follows $M_i =_\beta L$. So, $M_i$ has a $\beta$-nf, since $L$ is in $\beta$-nf.
+        \item On the one hand, $(\lambda u.v)\Omega$ has a $\beta$-nf. On the other hand, $(\lambda u.v)\Omega \to_\beta (\lambda u.v)\Omega \to_\beta ...$
+    \end{enumerate}
+\end{solution}

@@ -1,0 +1,11 @@
+\begin{problem}{2.15}
+    Give the $(var)$- and $(appl)$-cases of the proof of Lemma 2.10.5 (1) (the `Thinning Lemma').
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \textbf{Var:} Assume we have a judgment derived by the (var) rule, that is, $\Gamma' \vdash x:\sigma$. This means that $x:\sigma \in \Gamma'$ and obviously we would have $x:\sigma \in \Gamma''$. Thus $\Gamma'' \vdash x:\sigma$. 
+        \item \textbf{App:} Assume we have a judgment derived by the (app) rule, that is, $\Gamma' \vdash M:\sigma \to \tau$ and $\Gamma' \vdash N:\sigma$ are the premises, and $\Gamma' \vdash MN : \tau$ is the conclusion.
+                By IH, we have $\Gamma'' \vdash M:\sigma \to \tau$ and $\Gamma'' \vdash N:\sigma$, and by the (app) rule, we have: $\Gamma'' \vdash MN:\tau$.
+    \end{enumerate}
+\end{solution}

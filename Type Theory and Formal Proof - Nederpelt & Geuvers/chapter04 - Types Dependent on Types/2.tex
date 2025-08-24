@@ -1,0 +1,51 @@
+\begin{problem}{4.2}
+    Give complete $\lambda\underline{\omega}$-derivations, first in tree format and then in flag format (not shortened), of the following judgements:
+    \begin{enumerate}[label=$(\alph*)$]
+    \item $\emptyset \vdash (* \rightarrow *) \rightarrow * : \square$,
+    \item $\alpha : *, \beta : * \vdash (\alpha \rightarrow \beta) \rightarrow \alpha : *$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{prooftree}
+  \AxiomC{}
+  \RightLabel{(sort.)}
+  \UnaryInfC{$\vdash * : \square$}
+
+  \AxiomC{}
+  \RightLabel{(sort.)}
+  \UnaryInfC{$\vdash * : \square$}
+
+  \RightLabel{(form.)}
+  \BinaryInfC{$\vdash * \to * : \square$}
+
+  \AxiomC{}
+  \RightLabel{(sort.)}
+  \UnaryInfC{$\vdash * : \square$}
+
+  \RightLabel{(form.)}
+  \BinaryInfC{$\vdash (* \to *) \to * : \square$}
+\end{prooftree}
+
+\begin{prooftree}
+  \AxiomC{}
+  \RightLabel{(WVS.)}
+  \UnaryInfC{$\alpha : *, \beta : * \vdash \alpha : *$}
+
+  \AxiomC{}
+  \RightLabel{(Var.+sort)}
+  \UnaryInfC{$\alpha : *, \beta : * \vdash \beta : *$}
+
+  \RightLabel{(form.)}
+  \BinaryInfC{$\alpha : *, \beta : * \vdash \alpha \to \beta : *$}
+
+  \AxiomC{}
+  \RightLabel{(WVS.)}
+  \UnaryInfC{$\alpha : *, \beta : * \vdash \alpha : *$}
+
+  \RightLabel{(form.)}
+  \BinaryInfC{$\alpha : *, \beta : * \vdash (\alpha \to \beta) \to \alpha : *$}
+\end{prooftree}
+
+WVS: These branches can be completed easily by using (weak.), (var.), and (sort) rules.
+\end{solution}

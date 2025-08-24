@@ -1,0 +1,14 @@
+\begin{problem}{2.16}
+    Prove Lemma 2.10.8 (the 'Subterm Lemma').
+\end{problem}
+
+\begin{solution}
+    The proof is by induction on the structure of the derivation of the judgment $\Gamma \vdash M:\sigma$.
+    We need to show that for every subterm $L$ of $M$, there exists a context $\Gamma'$ and a type $\rho$ such that $\Gamma' \vdash L:\rho$.
+    \begin{itemize}
+        \item \textbf{Var:} If $M \equiv x$, the only subterm is $x$ itself.
+        \item \textbf{App:} If we have $\Gamma \vdash PQ : \sigma$, then the non-trivial subterms would be $P$ and $Q$.
+                The derivation is $\frac{\Gamma \vdash P:\rho \to \sigma \quad \Gamma \vdash Q : \rho}{\Gamma \vdash PQ : \sigma}$. By IH, all subterms of $P$ and $Q$, are legal, and hence, proves the lemma for this case.
+        \item \textbf{Abs:} Similarly one can prove for this case. 
+    \end{itemize}
+\end{solution}

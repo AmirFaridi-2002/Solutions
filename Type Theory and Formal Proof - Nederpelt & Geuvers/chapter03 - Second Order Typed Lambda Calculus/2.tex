@@ -1,0 +1,21 @@
+\begin{problem}{3.2}
+    Give a full (i.e. not-shortened) derivation in $\lambda 2$ to show that the following term is legal; use the flag format. (Cf. Example 3.1.1 (3).)
+    $$M\equiv\lambda\alpha,\beta,\gamma:* \cdot \lambda f:\alpha\rightarrow\beta \cdot \lambda g:\beta\rightarrow\gamma \cdot \lambda x:\alpha \cdot g(f x).$$
+\end{problem}
+
+\begin{solution}
+    For convinience, I'll just write the steps down instead of using flag notation. \\
+    \begin{prooftree}
+        \AxiomC{$\Gamma \vdash f:\alpha \to \beta$}
+        \RightLabel{(App.)}
+        \AxiomC{$\Gamma \vdash x:\alpha$}
+        \BinaryInfC{$\Gamma \vdash fx : \beta$}
+        \AxiomC{$ \Gamma \vdash g:\beta\to\gamma $}
+        \RightLabel{(App.)}
+        \BinaryInfC{$ \alpha\beta\gamma:\star, f:\alpha \to \beta, g:\beta \to \gamma, x:\alpha \vdash g(fx) : (\alpha \to \beta) \to (\beta \to \gamma) \to \alpha \to \gamma $}
+        \RightLabel{(3Abs.)}
+        \UnaryInfC{$ \alpha\beta\gamma:\star \vdash \lambda f:\alpha \to \beta, g:\beta \to \gamma, x:\alpha \cdot g(fx) : (\alpha \to \beta) \to (\beta \to \gamma) \to \alpha \to \gamma $}
+        \UnaryInfC{$\vdash \lambda \alpha\beta\gamma : \star \cdot \lambda f:\alpha \to \beta, g:\beta \to \gamma, x:\alpha \cdot g(fx) : \Pi \alpha\beta\gamma : \star \cdot (\alpha \to \beta) \to (\beta \to \gamma) \to \alpha \to \gamma$}
+    \end{prooftree}
+
+\end{solution}

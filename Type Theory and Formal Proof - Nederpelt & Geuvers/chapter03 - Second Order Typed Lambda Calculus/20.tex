@@ -1,0 +1,16 @@
+\begin{problem}{3.20}
+    Prove the Free Variables Lemma for $\lambda 2$ (cf. Lemma 3.6.4): if $\Gamma \vdash L : \sigma$, then $FV(L) \subseteq dom(\Gamma)$.
+\end{problem}
+
+\begin{solution}
+    The proof is by induction on the structure of the derivation of the judgment $\Gamma \vdash L : \sigma$.
+    \begin{itemize}
+        \item \textbf{Var:} We have $\Gamma \vdash x : \sigma$. The only free variable here is $x$ itself, and it must be in $\Gamma$.
+        \item \textbf{App:} In this case, we have $\frac{\Gamma \vdash M : \sigma \to \tau \quad \Gamma \vdash N : \sigma}{\Gamma \vdash MN : \tau}$ (by generation lemma).
+                Now, by IH, $FV(M)\subseteq dom(\Gamma)$ and $FV(N) \subseteq dom(\Gamma)$. Thus, $FV(MN) = FV(M) \cup FV(N) \subseteq dom(\Gamma)$.
+        \item \textbf{Abs:} Similar for this case!
+        \item \textbf{Form:} In this case, we have $\Gamma \vdash B:\star$. All free variables of $B$ must have been declared in $\Gamma$ by the rule itself.
+        \item \textbf{App2:} The rule is $\frac{\Gamma \vdash M:\Pi \alpha : \star.A \quad \Gamma \vdash B : \star}{\Gamma \vdash MB : A[\alpha := B]}$ by generation lemma. By IH, $FV(M) \subseteq dom(\Gamma)$. Also, by the (form.) fule's conditions on the other premise, all free type variables of $B$ are in $dom(\Gamma)$. Thus the lemma holds.
+        \item \textbf{Abs2:} Fairly similar!
+    \end{itemize}
+\end{solution}

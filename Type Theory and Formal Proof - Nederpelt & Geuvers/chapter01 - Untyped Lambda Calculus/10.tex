@@ -1,0 +1,24 @@
+\begin{problem}{1.10}
+    We define the $\lambda$-terms \texttt{zero}, \texttt{one}, \texttt{two} (the first three so-called Church numerals), and the $\lambda$-terms \texttt{add} and \texttt{mult} (which mimic addition and multiplication of Church numerals) by:
+\begin{align*}
+\texttt{zero} &:= \lambda f x \cdot x, \\
+\texttt{one} &:= \lambda f x \cdot f x, \\
+\texttt{two} &:= \lambda f x \cdot f(f x), \\
+\texttt{add} &:= \lambda mn f x \cdot m f(n f x), \\
+\texttt{mult} &:= \lambda mn f x \cdot m(n f)x.
+\end{align*}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Show that \texttt{add one one} $\rightarrow_{\beta}$ \texttt{two}.
+        \item Prove that \texttt{add one one} $\neq_{\beta}$ \texttt{mult one zero}.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[label=$(\alph*)$]
+        \item $ \texttt{add one one} = (\lambda mnfx.mf(nfx)) \texttt{ one one} \to_\beta (\lambda nfx.\texttt{ one } f(nfx)) \texttt{one} \to_\beta $
+                $ \lambda fx. \texttt{one} f(\texttt{one} fx) = \lambda fx.(\lambda fx.fx) f (\texttt{one} fx) \to_\beta \lambda fx. f(\texttt{one}fx) \to_\beta \lambda fx.f(fx) = \texttt{two} $.
+        \item We already know that $\texttt{add one one} \to_\beta \texttt{two}$
+                $$  \texttt{mult one zero} = (\lambda mnfx.m(nf)x) \texttt{one zero} \to_\beta \lambda fx.\texttt{one}(\texttt{zero}f)x $$
+                    $$ = \lambda fx. (\lambda fx.fx)(\lambda fx.x)fx \to_\beta \lambda fx.(\lambda fx.fx)(\lambda x.x)x \to_\beta \lambda fx.x = \texttt{zero} $$
+    \end{enumerate}
+\end{solution}

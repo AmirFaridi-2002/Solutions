@@ -1,0 +1,14 @@
+\begin{problem}{2.18}
+     Prove the Compatibility cases in the proof of Lemma 2.11.5.
+\end{problem}
+
+\begin{solution}
+     \begin{itemize}
+          \item \textbf{App. Left:} $L \equiv MK$ and let $L \to_\beta L' \equiv M'K$ since $ M \to_\beta' $.
+               The judgments are $\Gamma \vdash MK:\rho$. By Generation lemma, we would have $\Gamma \vdash M : \sigma \to \rho$ and $\Gamma \vdash K : \sigma$.
+               In this case, the premise of our reduction is $M \to_\beta M'$, and by IH, subject reduction holds for this premise. Therefore, $\Gamma \vdash M':\sigma \to \rho$.
+               Now, by applying the (app.) rule, we would have $\Gamma \vdash M'K:\rho$
+          \item \textbf{App. Right:} Similar to the previous case.
+          \item \textbf{Abstraction:} Here we have $L \equiv \lambda x:\tau . M \to_\beta L' \equiv \lambda x:\tau .M'$ because $M \to_\beta M'$. By use of IH and (abs.) rule, this case will be solved easily.
+     \end{itemize}
+\end{solution}

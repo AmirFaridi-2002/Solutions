@@ -1,0 +1,27 @@
+\begin{problem}{2.10}
+    Prove that the following pre-typed $\lambda$-terms are legal, by giving derivations in (shortened) flag notation.
+    \begin{enumerate}[label=$(\alph*)$]
+    \item $x z (y z)$,
+    \item $\lambda x : (\alpha \rightarrow \beta) \rightarrow \beta \cdot x(y z)$,
+    \item $\lambda y : \alpha \cdot \lambda z : \beta \rightarrow \gamma \cdot z(x y y)$,
+    \item $\lambda x : \alpha \rightarrow \beta \cdot y(x z)z$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    I'll be using derivation tree instead of flag notation.
+    \begin{enumerate}[label=$(\alph*)$]
+        \item Just simply take the following context, and apply them together! $$ \Gamma = \{ x:\alpha \to \beta \to \gamma, y:\alpha \to \beta, z:\alpha \} $$
+        \item Consider the following context, and apply them together before abstracting $x$. $$ \Gamma = \{ y:\gamma \to (\alpha \to \beta), z:\gamma \} $$
+        \item Consider the following context: $$ \Gamma = \{ x:\alpha \to \alpha \to \beta \} $$
+            \begin{prooftree}
+                \AxiomC{$\Gamma, y : \alpha, z : \beta \rightarrow \gamma \vdash z : \beta \rightarrow \gamma$}
+                \AxiomC{$\Gamma, y : \alpha, z : \beta \to \gamma \vdash xyy : \beta$}
+                \RightLabel{(App. - three times)}
+                \BinaryInfC{$\Gamma, y : \alpha, z : (\beta \to \gamma) \vdash z(xyy) : \gamma$}
+                \RightLabel{(Abs. - twice)}
+                \UnaryInfC{$\Gamma \vdash \lambda y : \alpha \cdot \lambda z : \beta \rightarrow \gamma \cdot z(xyy) : \alpha \rightarrow (\beta \rightarrow \gamma) \rightarrow \gamma$}
+            \end{prooftree}
+        \item Simply take the following context and apply the rules: $ \Gamma = \{ y : \beta \to \alpha \to \gamma, z : \alpha \} $
+    \end{enumerate}
+\end{solution}

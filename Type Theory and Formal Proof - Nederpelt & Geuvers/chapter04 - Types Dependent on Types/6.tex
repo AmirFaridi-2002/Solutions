@@ -1,0 +1,19 @@
+\begin{problem}{4.6}
+    \begin{enumerate}[label=$(\alph*)$]
+    \item Prove that there are no $\Gamma$ and $N$ in $\lambda\omega$ such that $\Gamma \vdash \square : N$ is derivable.
+    \item Prove that there are no $\Gamma, M$ and $N$ in $\lambda\omega$ such that $\Gamma \vdash M \rightarrow \square : N$ is derivable.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \textbf{(a.)} 
+
+    \textbf{(b.)} Proof by induction on the structure of the derivatiov tree of the judgement $\Gamma \vdash M \to \square : N$.
+    The last step in the derivation can only have been (weak.), (form.), or (conv.).
+    \begin{itemize}
+        \item \textbf{(weak.):} First premiss must have been of the form $\Gamma' \vdash M \to \square : N$. By induction this is not derivable.
+        \item \textbf{(form.):} Second premiss must have been $\Gamma \vdash \square : N$. This is not derivable by Exercise 4.6(a).
+        \item \textbf{(conv.):} First premiss must have been $\Gamma \vdash M \to \square : L$. By induction this is not derivable.
+    \end{itemize}
+    Thus, $\Gamma \vdash M \to \square : N$ is not derivable.
+\end{solution}

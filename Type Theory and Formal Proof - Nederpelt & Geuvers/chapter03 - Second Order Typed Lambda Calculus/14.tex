@@ -1,0 +1,26 @@
+\begin{problem}{3.14}
+    We may also introduce the polymorphic booleans in $\lambda 2$:
+    $$\mathit{Bool} \equiv \Pi\alpha:* \cdot \alpha\rightarrow\alpha\rightarrow\alpha,$$
+    $$\mathit{True} \equiv \lambda\alpha:* \cdot \lambda x,y:\alpha \cdot x,$$
+    $$\mathit{False} \equiv \lambda\alpha:* \cdot \lambda x,y:\alpha \cdot y.$$
+    Construct a $\lambda 2$-term $\mathit{Neg}:\mathit{Bool}\to \mathit{Bool}$ such that $\mathit{Neg}\ \mathit{True}=_\beta \mathit{False}$ and $\mathit{Neg}\ \mathit{False}=_\beta \mathit{True}$. Prove the correctness of your answer.
+\end{problem}
+
+\begin{solution}
+    Define: $$ Neg \equiv \lambda b : Bool . \lambda \alpha : * . \lambda x, y : \alpha . b\ \alpha\ y\ x : Bool \to Bool $$
+
+We show that $Neg : Bool \rightarrow Bool$ and that it satisfies the required properties.
+    $$Neg \; True =_\beta False$$
+\begin{align*}
+Neg\ True 
+&= (\lambda b : Bool . \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . b\ \alpha\ y\ x)\ True \\[6pt]
+&\;\;\;\;\;\rightarrow_\beta \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . True\ \alpha\ y\ x \\[6pt]
+&= \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . (\lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . x)\ \alpha\ y\ x \\[6pt]
+&\;\;\;\;\;\rightarrow_\beta \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . (\lambda x : \alpha . \lambda y : \alpha . x)\ y\ x \\[6pt]
+&\;\;\;\;\;\rightarrow_\beta \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . (\lambda y : \alpha . y)\ x \\[6pt]
+&\;\;\;\;\;\rightarrow_\beta \lambda \alpha : * . \lambda x : \alpha . \lambda y : \alpha . y \\[6pt]
+&= False
+\end{align*}
+
+Similarly, it can be shown that $Neg \; False =_\beta True$.
+\end{solution}

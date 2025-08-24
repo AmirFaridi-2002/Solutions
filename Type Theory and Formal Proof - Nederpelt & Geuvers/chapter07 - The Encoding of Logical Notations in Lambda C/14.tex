@@ -1,0 +1,10 @@
+\begin{problem}{7.14}
+    Let $\Gamma \equiv S : *, \, P : S \rightarrow *, \, Q : S \rightarrow *$. Consider the following $\lambda C$-expression:
+    $$M \equiv \lambda u : (\exists x : S . (Px \land Qx)) . \lambda \alpha : * . \lambda v : (\Pi x : S . (Px \rightarrow \alpha)) .$$
+    $$u \alpha (\lambda y : S . \lambda w : (Py \land Qy) . vy(w(Py)(\lambda s : Py . \lambda t : Qy . s))) .$$
+    \begin{enumerate}[label=$(\alph*)$]
+    \item Find a type $N$ such that $\Gamma \vdash M : N$.
+    \item Which logical tautology is expressed by $N$ and proved by $M$?
+    \item Give a derivation of $\Gamma \vdash M : N$.
+    \end{enumerate}
+\end{problem}

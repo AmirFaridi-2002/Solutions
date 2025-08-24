@@ -1,0 +1,11 @@
+\begin{problem}{5.11}
+    Let $S$ be a set, with $Q$ and $R$ relations on $S \times S$, and let $f$ and $g$ be functions from $S$ to $S$. Assume that:
+    \begin{itemize}
+    \item $\forall_{x,y \in S}(Q(x, f(y)) \Rightarrow Q(g(x), y))$,
+    \item $\forall_{x,y \in S}(Q(x, f(y)) \Rightarrow R(x, y))$,
+    \item $\forall_{x \in S}(Q(x, f(f(x))))$.
+    \end{itemize}
+    Prove that $\forall_{x \in S}(R(g(g(x)), g(x)))$ by giving a context $\Gamma$ and finding a term $M$ such that:
+    $$\Gamma \vdash M : \Pi x : S . R(g(g(x)))(g(x)).$$
+    Give the corresponding (shortened) $\lambda P$-derivation.
+\end{problem}
