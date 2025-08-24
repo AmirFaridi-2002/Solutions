@@ -1,3 +1,8 @@
 \begin{problem}{5.6}
     Prove that $(A \Rightarrow (A \Rightarrow B)) \Rightarrow (A \Rightarrow B)$ is a tautology, (first) in natural deduction and (second) by means of a shortened $\lambda P$-derivation.
 \end{problem}
+
+\begin{solution}
+    One can easily show that the following has the disired type:
+    $$  (\lambda f : (A\to (A\to B)).\;(\lambda a : A.\;((f\ a)\ a))) : (A\to(A\to B)) \to (A\to B) $$
+\end{solution}

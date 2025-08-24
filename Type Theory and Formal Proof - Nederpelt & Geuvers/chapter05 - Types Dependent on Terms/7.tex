@@ -6,3 +6,12 @@
     \item $(A \Rightarrow (B \Rightarrow C)) \Rightarrow ((A \Rightarrow B) \Rightarrow (A \Rightarrow C))$.
     \end{enumerate} 
 \end{problem}
+
+\begin{solution}
+    One can easily show that the given terms have the desired type.
+    \begin{enumerate}
+        \item $ \lambda p : (A\to B).\;(\lambda q : (B\to C).\;(\lambda a : A.\; (q\ (p\ a)) )) : (A\to B) \to ((B\to C)\to (A\to C)) $
+        \item $ \lambda h : ((A\to B)\to A).\;(\lambda f : (A\to B).\; (f\ (h\ f))) $
+        \item $ \lambda p : (A\to (B\to C)).\;(\lambda r : (A\to B).\;(\lambda a : A.\; ((p\ a)\ (r\ a)) )) $
+    \end{enumerate}
+\end{solution}
